@@ -9,8 +9,8 @@ import { RENEWAL_REPOSITORY } from '../../../common/constants';
 export class RenewalService {
     constructor(@Inject(RENEWAL_REPOSITORY) private readonly renewalRepository: typeof RenewalEntity) { }
 
-    async create(post: RenewalCreateDto): Promise<RenewalEntity> {
-        return await this.renewalRepository.create<RenewalEntity>({ ...post });
+    async create(renewal: RenewalCreateDto): Promise<RenewalEntity> {
+        return await this.renewalRepository.create<RenewalEntity>({ ...renewal });
     }
     async findAll(renewal: RenewalResponseDto): Promise<RenewalEntity[]> {
         return await this.renewalRepository.findAll<RenewalEntity>({

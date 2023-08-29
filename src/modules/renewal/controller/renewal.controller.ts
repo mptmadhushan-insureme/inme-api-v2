@@ -11,27 +11,27 @@ export class RenewalController {
 
     @Post()
     async create(@Body() renewal: RenewalCreateDto, @Request() req): Promise<RenewEntity> {
-        // create a new post and return the newly created post
+        // create a new renewal and return the newly created renewal
         return await this.renewalService.create(renewal);
     }
     
     @Get()
     async findAll(renewal: RenewalResponseDto,) {
-        // get all posts in the db
+        // get all renewal in the db
         return await this.renewalService.findAll(renewal);
     }
 
     @Put(':id')
     async update(@Param('id') id: number, @Body() post: RenewalCreateDto, @Request() req): Promise<RenewEntity> {
-        // get the number of row affected and the updated post
+        // get the number of row affected and the updated renewal
         const { numberOfAffectedRows, updatedRenewal } = await this.renewalService.update(id, post);
 
-        // if the number of row affected is zero, it means the post doesn't exist in our db
+        // if the number of row affected is zero, it means the renewal doesn't exist in our db
         if (numberOfAffectedRows === 0) {
             throw new NotFoundException('This Renewal doesn\'t exist');
         }
 
-        // return the updated post
+        // return the updated renewal
         return updatedRenewal;
     }
 

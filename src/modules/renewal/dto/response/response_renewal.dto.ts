@@ -1,19 +1,19 @@
-import { IsNotEmpty, MinLength, IsEmail, IsEnum } from 'class-validator';
+import { AutoMap } from '@automapper/classes';
 
 export class RenewalResponseDto {
 
-    @IsNotEmpty()
-    readonly title: string;
+    @AutoMap()
+    title: string;
 
-    @IsNotEmpty()
-    readonly sub_title: string;
+    @AutoMap()
+    sub_title: string;
 
-    @IsNotEmpty()
-    readonly date: string;
+    @AutoMap()
+    date: string;
 
-    @IsNotEmpty()
-    readonly documents: string;
-    
-    @IsNotEmpty()
-    readonly repeat: string
+    @AutoMap()
+    documents: string;
+
+    @AutoMap()
+    repeat: string
 }
